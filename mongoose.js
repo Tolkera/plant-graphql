@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var plantSchema = new Schema({
     name: String,
-    color: String,
+    purchased: String,
+    seller: String,
     watered: Date
 }, {collection:"plants"});
 

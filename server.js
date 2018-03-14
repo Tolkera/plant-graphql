@@ -14,9 +14,10 @@ app.use(bodyParser.urlencoded({
 
 app.use('/graphql', graphqlHTTP({
     schema: PlantGraphQLSchema,
-    graphiql: true
+   // graphiql: true
 }));
 
+app.use(express.static(__dirname + '/public/'))
 
 mongoose.connect('mongodb://admin:123@ds213759.mlab.com:13759/graphql');
 var db = mongoose.connection;
@@ -30,7 +31,6 @@ app.post('/plants',(req,res)=>{
     var plant = new Plant({
         name: req.body.name,
         watered: new Date(),
-        color: "green"
     });
     plant.save((err,result)=> {
         if (err) {console.log("---plant save failed " + err)}
@@ -39,8 +39,9 @@ app.post('/plants',(req,res)=>{
 });
 
 
-app.get('/',(req,res)=>{
-    res.sendFile(__dirname + '/index.html')
+app.get('*',(req,res)=>{
+    res.sendFile(__dirname + '/public/index.html')
+
 });
 
 

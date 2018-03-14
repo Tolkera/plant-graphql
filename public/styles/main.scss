@@ -1,0 +1,31 @@
+$media-mobile: 900px;
+
+body {
+  background: #376073;
+  color: #F5F5ED;
+  font-size: 22px;
+  font-weight: bold;
+}
+.container {
+  width: $media-mobile;
+  margin: 0 auto;
+  padding: 50px 0;
+
+
+  @media(max-width: $media-mobile){
+    width: 100%;
+    padding: 20px 10px;
+  }
+}
+
+.plant-item {
+  background: #F5F5ED;
+  color: #376073;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  a {
+    color: #D29D2D;
+  }
+}
