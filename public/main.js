@@ -22147,22 +22147,44 @@ module.exports = function (_React$Component) {
         key: 'render',
         value: function render() {
 
-            var list = this.state.plants.map(function (plant) {
+            var list = this.state.plants.map(function (plant, i) {
                 return _react2.default.createElement(
                     'div',
                     { className: 'plant-item', key: plant._id },
                     _react2.default.createElement(
-                        'span',
-                        null,
-                        plant.name,
-                        ' '
+                        'div',
+                        { className: 'plant-item__grid ' },
+                        _react2.default.createElement(
+                            _reactRouterDom.Link,
+                            { to: plant.name, className: '' },
+                            ' ',
+                            plant.name
+                        )
                     ),
-                    ' ',
                     _react2.default.createElement(
-                        _reactRouterDom.Link,
-                        { to: plant.name },
-                        ' ',
-                        plant.name
+                        'div',
+                        { className: 'plant-item__grid' },
+                        _react2.default.createElement('div', { className: "status status" + (i % 3 == 0 ? "--danger" : '') })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'plant-item__grid' },
+                        _react2.default.createElement(
+                            'span',
+                            null,
+                            'Watered last ',
+                            plant.watered,
+                            ' '
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'plant-item__grid' },
+                        _react2.default.createElement(
+                            'button',
+                            { className: 'btn' },
+                            'Water'
+                        )
                     )
                 );
             });
@@ -22186,6 +22208,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22242,14 +22266,104 @@ module.exports = function (_React$Component) {
                 name,
                 _react2.default.createElement('br', null),
                 _react2.default.createElement('br', null),
-                'Purchased around ',
-                purchased,
-                ' at ',
-                seller,
-                ' ',
-                _react2.default.createElement('br', null),
-                ' ',
-                _react2.default.createElement('br', null)
+                _react2.default.createElement(
+                    'div',
+                    { className: 'flex-wrap' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'plant-item plant-item--card plant-item--attention' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'label' },
+                            'Purchased:'
+                        ),
+                        purchased,
+                        ' ',
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'label' },
+                            'Seller:  '
+                        ),
+                        seller,
+                        '  ',
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'label' },
+                            'Price:  '
+                        ),
+                        '10  ',
+                        _react2.default.createElement('br', null)
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'plant-item plant-item--card plant-item' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'label' },
+                            'More info:'
+                        ),
+                        ' ',
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'label' },
+                            'Less info:  '
+                        ),
+                        ' ',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'flex-wrap' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'plant-item plant-item--card plant-item--success' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'label' },
+                            'First growth:'
+                        ),
+                        '100cm ',
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'label' },
+                            'Current:  '
+                        ),
+                        ' 120cm ',
+                        _react2.default.createElement('br', null)
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'plant-item plant-item--card plant-item--danger' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'label' },
+                            'Water:'
+                        ),
+                        ' 1 per week',
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'label' },
+                            'Sun:  '
+                        ),
+                        ' a lot ',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        _reactRouterDom.Link,
+                        { to: '/' },
+                        ' Back to all'
+                    )
+                )
             );
         }
     }]);
@@ -22257,7 +22371,7 @@ module.exports = function (_React$Component) {
     return Plant;
 }(_react2.default.Component);
 
-},{"react":64}],71:[function(require,module,exports){
+},{"react":64,"react-router-dom":48}],71:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();

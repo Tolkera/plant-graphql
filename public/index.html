@@ -9,26 +9,6 @@
 
 <div id="app"></div>
 
-<div class="container">
-
-    <form action="/plants" method="POST">
-        <input type="text" name="name">
-        <button type="submit">Submit</button>
-    </form>
-
-    <hr>
-    <div>
-        <a href='/graphql?query={allPlants{name}}'>Get all plants</a>
-    </div>
-
-    <div>
-        <a href='/graphql?query={plant(name:"Ficus"){name, color, watered}}'>get Ficus</a>
-    </div>
-
-    <hr>
-</div>
-
-
 <script src="main.js"></script>
 </body>
 </html>

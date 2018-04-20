@@ -29,13 +29,26 @@ module.exports = class PlantList extends React.Component {
 
     render(){
 
-        let list = this.state.plants.map((plant)=>{
+        let list = this.state.plants.map((plant, i)=>{
             return(
                 <div className="plant-item" key={plant._id}>
-                <span>{plant.name} </span> <Link to={plant.name}> {plant.name}</Link>
+                    <div className="plant-item__grid ">
+                        <Link to={plant.name} className=""> {plant.name}</Link>
+                    </div>
+                    <div className="plant-item__grid">
+                        <div className={"status status" + ((i % 3==0) ? "--danger" : '')}  ></div>
+                    </div>
+                    <div className="plant-item__grid">
+                        <span>Watered last {plant.watered} </span>
+                    </div>
+                    <div className="plant-item__grid">
+                        <button className="btn">Water</button>
+                    </div>
+
+
                 </div>
             )
-        })
+        });
 
         return(
             <div className="">
